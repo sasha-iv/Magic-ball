@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            /* box-sizing: border-box; */
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: rgb(31, 29, 29);
+        }
+        .container {
+            width: 100%;
+            min-height: 910px;
+            position: relative;
+            
+        }
+        .container, .ball, .bord {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .ball {
+            width: 460px;
+            height: 460px;
+            background-image: url(Magic_eight_ball.png); 
+            position: absolute;
+            top: 210px;
+            left: 710px;
+            border-radius: 50%; 
+            border: 1px solid black;
+            box-shadow: 0 0 150px rgba(175, 178, 188, 0.4);
+            background-position: center;
+            /* transition: left ease; */
+        }
+        .text {
+            width: 270px;
+            height: 270px;
+            text-align: center;
+            background-position: center;
+            border-radius: 50%;
+        }
+        .text p {
+            color: white;
+            font-size: 25px;
+            margin: 0;
+            padding: 70px 30px;
+        }
+        p {
+            font-size: 25px;
+            color: rgb(250, 253, 250);
+        }
+        .cost {
+            width: 500px;
+            background-color: rgb(66, 66, 67);
+            border-radius: 10px;
+            margin: 20 auto;
+            
+            top: 100px;
+            left: 100px;
+            padding: 10px;
+        }
+        .btn {
+            z-index: 10;
+            margin-top: 20px;
+            font-size: 20px;
+            width: 250px;
+            height: 60px;
+            text-transform: uppercase;
+            box-shadow: 7px 7px 5px 2px gold;
+            border-radius: 5px;
+            
+        }
+        .cont {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            align-items: center;
+            margin: 80px;
+        }
+    </style>
+</head>
+<body>
+    <div class="cont">
+        <div class="cost">
+            <p>Сеанс коштує 10 грн.
+            Щоб оплатити - натисни на кнопку
+        </div>
+        
+        <button class="btn">Оплатити</button>
+    </div>
+
+    <div class="container">
+        <div class="ball">
+            <div class="text">
+                <p>Задай питання і отримаєш відповідь</p> 
+            </div>
+        </div>
+    </div>
+   
+    <script>
+        let p = document.querySelector('.text p');
+        let ball = document.querySelector('.ball');
+        let divText = document.querySelector('.text');
+        let btn = document.querySelector('.btn');
+        console.dir(ball);
+
+        let flag = false;
+
+        btn.addEventListener('click', function() {
+            flag = true;
+            alert("Оплата успішна, можеш задавати питання");
+
+        })
+
+        ball.addEventListener('click', function() {
+            if(flag != true) return;
+
+            setTimeout(function(){
+                ball.style.left = "770px"
+                divText.style.backgroundImage = "url(fon.png)";
+            }, 100)
+            setTimeout(function(){
+                ball.style.left = "700px"
+            }, 150)
+            setTimeout(function(){
+                ball.style.left = "690px"
+            }, 200)
+            setTimeout(function(){
+                ball.style.left = "720px"
+            }, 250)
+            setTimeout(function(){
+                ball.style.left = "770px"
+            }, 300)
+            setTimeout(function(){
+                ball.style.left = "720px"
+            }, 350)
+            setTimeout(function(){
+                ball.style.left = "690px"
+            }, 400)
+            setTimeout(function(){
+                ball.style.left = "720px"
+            }, 450)
+            setTimeout(function(){
+                ball.style.left = "770px"
+            }, 500)
+            setTimeout(function(){
+                ball.style.left = "710px"
+            }, 550)
+            
+        })
+
+        ball.addEventListener('click', function(e) {
+            if(flag != true) {
+                alert("Оплати сеанс!");
+                return;
+            } 
+
+            p.textContent = "";
+            let answers = ["так", "ні", "можливо", "шанси хороші, якщо ти послухаєш альбом Вінніка", "не сумнівайся", "ай донт ноу", "дай подумаю", "Паша Зібров каже, що так", "баба не чує, скажи ще раз"];
+            let randomIndex = Math.floor(Math.random() * answers.length);
+            console.log(randomIndex);
+            setTimeout(function(){
+                p.textContent = answers[randomIndex];
+                divText.style.backgroundImage = "";
+            }, 800)
+        });
+    </script>
+</body>
+</html>
