@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            /* box-sizing: border-box; */
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: rgb(31, 29, 29);
+        }
+        .container {
+            height: 100vh;
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
+            
+        }
+        .ball {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 400px;
+            height: 400px;
+            background-image: url(Magic_eight_ball.png); 
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 50%; 
+            border: 1px solid black;
+            box-shadow: 0 0 150px rgba(175, 178, 188, 0.4);
+            background-position: center;
+            background-size: calc(100% + 20px);
+            transition: 0.2s linear;
+        }
+        .text {
+            width: 270px;
+            height: 270px;
+            text-align: center;
+            background-position: center;
+            border-radius: 50%;
+        }
+        .text p {
+            color: white;
+            font-size: 25px;
+            margin: 0;
+            padding: 70px 30px;
+        }
+        p {
+            font-size: 25px;
+            color: rgb(250, 253, 250);
+        }
+        .cost {
+            width: 60%;
+            background-color: rgb(66, 66, 67);
+            border-radius: 10px;
+            top: 100px;
+            left: 100px;
+            padding: 10px;
+            text-align: center;
+        }
+        .btn {
+            z-index: 10;
+            margin-top: 20px;
+            font-size: 20px;
+            width: 250px;
+            height: 60px;
+            text-transform: uppercase;
+            box-shadow: 7px 7px 5px 2px gold;
+            border-radius: 5px;
+        }
+        .cont {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            align-items: center;
+            width: 40%;
+            margin: 30px;
+        }
+        @media (max-width: 800px) {
+            .cost{
+                width: 100%;
+            }
+            .cost p{
+                font-size: 20px;
+            }
+            .btn{
+                width: 150px;
+            }
+        }
+       
+    </style>
+</head>
+<body>
+    <div class="cont">
+        <div class="cost">
+            <p>Сеанс коштує 10 грн. <br />
+            Щоб оплатити - натисни на кнопку
+        </div>
+        
+        <button class="btn">Оплатити</button>
+    </div>
+
+    <div class="container">
+        <div class="ball">
+            <div class="text">
+                <p>Задай питання і отримаєш відповідь</p> 
+            </div>
+        </div>
+    </div>
+   
+    <script>
+        let p = document.querySelector('.text p');
+        let ball = document.querySelector('.ball');
+        let divText = document.querySelector('.text');
+        let btn = document.querySelector('.btn');
+        console.dir(ball);
+
+        let flag = false;
+
+        btn.addEventListener('click', function() {
+            flag = true;
+            alert("Оплата успішна, можеш задавати питання");
+
+        })
+
+        ball.addEventListener('click', function() {
+            if(flag != true) return;
+
+            setTimeout(function(){
+                ball.style.transform = "translateX(-50%)"
+                divText.style.backgroundImage = "url(fon.png)";
+            }, 100)
+            setTimeout(function(){
+                ball.style.transform = "translateX(-50%)"
+            }, 150)
+            setTimeout(function(){
+                ball.style.transform = "translateX(-51%)"
+            }, 200)
+            setTimeout(function(){
+                ball.style.transform = "translateX(-55%)"
+            }, 250)
+            setTimeout(function(){
+                ball.style.transform = "translateX(-45%)"
+            }, 300)
+            setTimeout(function(){
+                ball.style.transform = "translateX(-48%)"
+            }, 350)
+            setTimeout(function(){
+                ball.style.transform = "translateX(-53%)"
+            }, 400)
+            setTimeout(function(){
+                ball.style.transform = "translateX(-48%)"
+            }, 450)
+            setTimeout(function(){
+                ball.style.transform = "translateX(-43%)"
+            }, 500)
+            setTimeout(function(){
+                ball.style.transform = "translateX(-50%)"
+            }, 550)
+            
+        })
+
+        ball.addEventListener('click', function(e) {
+            if(flag != true) {
+                alert("Оплати сеанс!");
+                return;
+            } 
+
+            p.textContent = "";
+            let answers = ["так", "ні", "можливо", "шанси хороші", "не сумнівайся", "дай подумаю", "скоріше так", "скоріше ні", "запитай знову"];
+            let randomIndex = Math.floor(Math.random() * answers.length);
+            console.log(randomIndex);
+            setTimeout(function(){
+                p.textContent = answers[randomIndex];
+                divText.style.backgroundImage = "";
+            }, 800)
+        });
+    </script>
+</body>
+</html>

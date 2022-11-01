@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        header {
+            max-width: 100%;
+            min-height: 300px;
+            background-color: rgb(76, 172, 145);
+        }
+        .points, .block {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            
+        }
+        .column {
+            display: flex;
+            flex-direction: column;
+            width: 20%;
+            justify-content: flex-start;
+            margin: 0 20px;
+        }       
+        .block div{
+            background-color: #fff;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin: 10px;
+        }
+        .mainBlock {
+            width: 60%;
+            height: 100%;
+            border: 1px solid blue;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            justify-content: space-between;
+
+        }
+        .number {
+            width: 100%;
+            height: 150px;
+            background-color: rgb(76, 172, 145);
+            color: white;
+            font-size: 100px;
+            text-align: center;
+            margin-top: 70px;
+        }
+        .rows {
+            background-color: rgb(197, 199, 201);
+            width: 100%;
+            height: 20px;
+            margin: 15px 0px;
+            
+        }
+        .number + div {
+            margin-top: 50px;
+        }
+        
+        @media (max-width: 1370px) {
+            .mainBlock {
+               width: 90%;
+            }
+        }
+        @media (max-width: 900px) {
+            .mainBlock {
+               width: 100%;
+            }
+        }
+        @media (max-width: 830px) {
+            .points {
+                display: none; 
+            }
+            .mainBlock {
+                width: 100%;
+                justify-content: none;
+            }
+            .column {
+                margin: 10px;
+            }
+            
+        }
+
+        @media (max-width: 500px) {
+            .points {
+                display: none; 
+            }
+            .column {
+                width: 40%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <header class="points">
+       <div class="block">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+       </div>
+    </header>
+
+
+    <main >
+        <div class="mainBlock">
+            <div class="column">
+                <div class="number">1</div>
+                <div >
+                    <div class="rows"></div>
+                    <div class="rows"></div>
+                    <div class="rows"></div>
+                    <div class="rows"></div>
+                    <div class="rows"></div>
+                    <div class="rows"></div>
+                    <div class="rows"></div>
+                    <div class="rows"></div>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="number">2</div>
+                <div >
+                    <div class="rows"></div>
+                    <div class="rows"></div>
+                    <div class="rows"></div>
+                    <div class="rows"></div>
+                    <div class="rows"></div>
+                    <div class="rows"></div>
+                    <div class="rows"></div>
+                    <div class="rows"></div>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="number">3</div>
+                <div >
+                    <div class="rows"></div>
+                    <div class="rows"></div>
+                    <div class="rows"></div>
+                    <div class="rows"></div>
+                    <div class="rows"></div>
+                    <div class="rows"></div>
+                    <div class="rows"></div>
+                    <div class="rows"></div>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="number">4</div>
+                <div >
+                    <div class="rows"></div>
+                    <div class="rows"></div>
+                    <div class="rows"></div>
+                    <div class="rows"></div>
+                    <div class="rows"></div>
+                    <div class="rows"></div>
+                    <div class="rows"></div>
+                    <div class="rows"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
